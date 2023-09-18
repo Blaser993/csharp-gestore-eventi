@@ -44,8 +44,16 @@ namespace csharp_gestore_eventi
 
         public List<Evento> DeleteAllInList(List<Evento> eventi)
         {
-            eventi.Clear();
-            return new List<Evento>();
+            if (eventi.Count == 0)
+            {
+                throw new Exception("La tua lista di programmi è vuota");
+            }
+            else
+            {
+                eventi.Clear();
+                return new List<Evento>();
+            }
+
         }
 
         public int CountEvents(List<Evento> eventi)
@@ -57,20 +65,14 @@ namespace csharp_gestore_eventi
         ///*
         public static void StampListOfEvents(List<Evento> eventi)
         {
-            if (eventi.Count == 0)
+
+            Console.WriteLine($"Ecco la lista degli eventi nel tuo programma");
+            foreach (Evento evento in eventi)
             {
-                Console.WriteLine("Il vostro programma non presenta eventi al suo interno");
+                //successivamente prova a stampare la posizione dell'evento all'interno della lista
+                Console.WriteLine($"- Nome dell'evento: {evento.title}");
             }
-            else
-            {
-                Console.WriteLine($"Ecco la lista degli eventi nel tuo programma");
-                foreach (Evento evento in eventi)
-                {
-                    //successivamente prova a stampare la posizione dell'evento all'interno della lista
-                    Console.WriteLine($"- Nome dell'evento: {evento.title}");
-                }
-            }
- 
+
         }
 
         public static void StampListProgram(string title, List<Evento> eventi)
