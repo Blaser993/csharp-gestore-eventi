@@ -69,7 +69,7 @@ namespace csharp_gestore_eventi
             this.title = title;
             this.date = date;
             this.spotsMax = spotsMax;
-            this.SpotsBooked = 0;
+            this.spotsBooked = 0;
         }
 
         //metodi
