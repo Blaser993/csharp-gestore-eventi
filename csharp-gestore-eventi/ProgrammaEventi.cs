@@ -8,15 +8,15 @@ namespace csharp_gestore_eventi
 {
     public class ProgrammaEventi
     {
-        public string title;
-        public List<Evento> eventi;
+        public string Title { get; set; }
+        public List<Evento> Eventi {  get; set; }
 
 
         //costruttore
-        public ProgrammaEventi(string title, List<Evento> eventi)
+        public ProgrammaEventi(string title, List<Evento> Eventi)
         {
-            this.title = title;
-            this.eventi = new List<Evento>();
+            this.Title = title;
+            this.Eventi = new List<Evento>();
         }
 
 
@@ -24,7 +24,7 @@ namespace csharp_gestore_eventi
 
         public Evento NewEventInList(Evento evento) 
         {
-            eventi.Add(evento);
+            Eventi.Add(evento);
 
             return evento;
         }
@@ -32,7 +32,7 @@ namespace csharp_gestore_eventi
         public List<Evento> ListOfEventAtDate(DateTime date)
         {
             List<Evento> eventsOnDate = new List<Evento>();
-            foreach (Evento evento in eventi)
+            foreach (Evento evento in Eventi)
             {
                 if (evento.date == date) 
                 {
@@ -53,7 +53,7 @@ namespace csharp_gestore_eventi
             int count = 0;
             foreach (Evento evento in eventi)
             {
-                count++;
+                count = count++;
             }
             return count;
         }

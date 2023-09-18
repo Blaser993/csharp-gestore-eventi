@@ -1,8 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using csharp_gestore_eventi;
+using System.Collections.Generic;
 
 Console.WriteLine("GestoreEventi");
-
+/*
 Console.Write("Inserisci il nome dell'evento: ");
 string nome1 = Console.ReadLine();
 Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
@@ -47,7 +48,9 @@ Console.Write(v);
 //MILESTONE 2 ------------------------------------------------------------------------------------
 
 //chiedo all'utente se e quanti posti vuole disdire
+
 bool askToDelete = false;  
+
 
 do
 {
@@ -75,9 +78,36 @@ do
 
 
 } while (askToDelete = true);
+*/
+
+//MILESTONE 4 ----------------------------------------------------------------------------
+
+List<Evento> events = new List<Evento>();
+Console.Write("Inserisci il nome del tuo programma di eventi: ");
+string nameProgramma = Console.ReadLine();
+Console.WriteLine("");
+
+ProgrammaEventi programma1 = new ProgrammaEventi(nameProgramma, events);
+
+Console.Write($"Inserisci il numero di eventi che vuoi aggiungere a {programma1.Title}: ");
+int numberEvents = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("");
+
+for (int i = 0; i < numberEvents; i++)
+{
+    Console.Write("Inserisci il nome dell'evento: ");
+    string nome1 = Console.ReadLine();
+    Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
+    DateTime data1 = Convert.ToDateTime(Console.ReadLine());
+    Console.Write("Inserisci il numero di posti: ");
+    int posti1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("");
+}
+
+int numberOfEvents = programma1.CountEvents(events);
+Console.WriteLine($"{numberOfEvents}");
 
 
-//MILESTONE 3 ----------------------------------------------------------------------------
 
 
 Console.WriteLine("");
