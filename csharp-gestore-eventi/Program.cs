@@ -111,8 +111,23 @@ for (int i = 0; i < numberEvents; i++)
 int numberOfEvents = programma1.CountEvents(programma1.Eventi);
 Console.WriteLine($"Sono presenti {numberOfEvents} nel tuo programma '{nameProgramma}'");
 
-
 ProgrammaEventi.StampListOfEvents(programma1.Eventi);
+
+bool deleteAllEvents = false;
+
+Console.WriteLine("Vuoi eliminare tutti gli eventi dal tuo programma? (s/n)");
+string canDelate = Console.ReadLine();
+
+if (canDelate == "s")
+{
+    programma1.DeleteAllInList(programma1.Eventi);
+    ProgrammaEventi.StampListOfEvents(programma1.Eventi);
+}
+else if (canDelate == "n");
+{
+    Console.WriteLine("Va bene");
+}
+
 
 Console.WriteLine("");
 
