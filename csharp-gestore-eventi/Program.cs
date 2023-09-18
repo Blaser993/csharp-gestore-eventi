@@ -98,6 +98,7 @@ for (int i = 0; i < numberEvents; i++)
     
     Console.Write("Inserisci il nome dell'evento: ");
     string nome1 = Console.ReadLine();
+
     Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
     DateTime data1 = Convert.ToDateTime(Console.ReadLine());
     Console.Write("Inserisci il numero di posti: ");
@@ -108,10 +109,10 @@ for (int i = 0; i < numberEvents; i++)
 }
 
 int numberOfEvents = programma1.CountEvents(programma1.Eventi);
-Console.WriteLine($"{numberOfEvents}");
+Console.WriteLine($"Sono presenti {numberOfEvents} nel tuo programma '{nameProgramma}'");
 
 
-
+ProgrammaEventi.StampListOfEvents(programma1.Eventi);
 
 Console.WriteLine("");
 

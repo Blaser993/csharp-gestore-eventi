@@ -54,12 +54,14 @@ namespace csharp_gestore_eventi
             return eventi.Count;
         }
 
-        public static void StampListEvents(List<Evento> eventi)
+        ///*
+        public static void StampListOfEvents(List<Evento> eventi)
         {
+            Console.WriteLine($"Ecco la lista degli eventi nel tuo programma");
             foreach (Evento evento in eventi)
             {
                 //successivamente prova a stampare la posizione dell'evento all'interno della lista
-                Console.WriteLine($"Evento: {evento.title}");
+                Console.WriteLine($"- Nome dell'evento: {evento.title}");
             }
         }
 
@@ -71,6 +73,7 @@ namespace csharp_gestore_eventi
                 Console.WriteLine($"    {evento.date} - {evento.title}");
             }
         }
+        //*/
     }
 
 
