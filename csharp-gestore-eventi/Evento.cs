@@ -14,7 +14,7 @@ namespace csharp_gestore_eventi
 
         public int spotsMax;
 
-        public int SpotsBooked {  get; private set; }
+        public int spotsBooked;
 
         // getter e setter
 
@@ -54,6 +54,14 @@ namespace csharp_gestore_eventi
             return spotsMax; 
         }
 
+        public int GetSpotsBooked() { return spotsBooked; }
+
+        private int SetSpotsBooked()
+        {
+
+            return spotsBooked;
+        }
+
         //costruttore
 
         public Evento(string title, DateTime date, int spotsMax) 
@@ -68,30 +76,29 @@ namespace csharp_gestore_eventi
 
         public int BookSpots(int spots) 
         { 
-            if (spots > (spotsMax - SpotsBooked) || spotsMax == SpotsBooked || date < DateTime.Now)
+            if (spots > (spotsMax - spotsBooked) || spotsMax == spotsBooked || date < DateTime.Now)
             {
                 throw new Exception(
                     "Non è possibile prenotare nuovi posti");
             }
-            SpotsBooked += spots;
-            return SpotsBooked;
+            spotsBooked += spots;
+            return spotsBooked;
         }
 
         public int DeleteBookedSpots(int spots) 
         {
-            if ( spots > SpotsBooked || SpotsBooked == 0 || date < DateTime.Now)
+            if ( spots > spotsBooked || spotsBooked == 0 || date < DateTime.Now)
             {
                 throw new Exception(
                     "Non è possibile prenotare nuovi posti");
             }
-            SpotsBooked -= spots;
-            return SpotsBooked;
+            spotsBooked -= spots;
+            return spotsBooked;
         }
 
         public override string ToString()
         {
-            date.ToString("dd/MM/yyyy");
-            return base.ToString($"{date} - {title}");
+            return ($"{date.ToString("dd / MM / yyyy")} - {title}");
         }
     }
 }
