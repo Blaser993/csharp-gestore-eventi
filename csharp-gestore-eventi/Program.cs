@@ -74,7 +74,7 @@ do
     else throw new Exception("risposta non valida");
 
 
-} while (askToDelete == true);
+} while (askToDelete = true);
 
 
 

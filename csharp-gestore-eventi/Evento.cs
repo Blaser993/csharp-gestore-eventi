@@ -68,7 +68,8 @@ namespace csharp_gestore_eventi
 
         private int SetSpotsAviable()
         {
-            return spotsAviable;
+            spotsAviable = spotsMax - spotsBooked;
+            return this.spotsAviable;
         }
 
         //costruttore
@@ -79,7 +80,7 @@ namespace csharp_gestore_eventi
             this.date = date;
             this.spotsMax = spotsMax;
             spotsBooked = 0;
-            spotsAviable = spotsMax - this.spotsBooked;
+            this.spotsAviable = SetSpotsAviable();
         }
 
         //metodi
@@ -91,7 +92,7 @@ namespace csharp_gestore_eventi
                 throw new Exception(
                     "Non è possibile prenotare nuovi posti");
             }
-            spotsBooked = spotsBooked + spots;
+            spotsBooked = this.spotsBooked + spots;
             return spotsBooked;
         }
 
@@ -102,8 +103,8 @@ namespace csharp_gestore_eventi
                 throw new Exception(
                     "Non è possibile prenotare nuovi posti");
             }
-            spotsBooked = spotsBooked - spots;
-            return spotsBooked;
+            spotsBooked = this.spotsBooked - spots;
+            return this.spotsBooked;
         }
 
         public override string ToString()
