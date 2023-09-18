@@ -41,6 +41,40 @@ namespace csharp_gestore_eventi
             }
             return eventsOnDate;
         }
+
+        public List<Evento> EmptyList(List<Evento> eventi)
+        {
+            eventi.Clear();
+            return new List<Evento>();
+        }
+
+        public int CountEvents(List<Evento> eventi)
+        {
+            int count = 0;
+            foreach (Evento evento in eventi)
+            {
+                count++;
+            }
+            return count;
+        }
+
+        public static void StampListEvents(List<Evento> eventi)
+        {
+            foreach (Evento evento in eventi)
+            {
+                //successivamente prova a stampare la posizione dell'evento all'interno della lista
+                Console.WriteLine($"Evento: {evento.title}");
+            }
+        }
+
+        public static void StampListProgram(string title, List<Evento> eventi)
+        {
+            Console.WriteLine($"Programma dell'evento: {title}");
+            foreach(Evento evento in eventi)
+            {
+                Console.WriteLine($"    {evento.date} - {evento.title}");
+            }
+        }
     }
 
 
