@@ -17,6 +17,8 @@ bool askMultipleBooks = false;
 Console.Write("Desideri effettuare delle prenotazioni? (s/n) ");
 string multipleBooks = Console.ReadLine();
 
+
+//chiedo all'utente se vuole fare prenotazioni multiple
 if (multipleBooks == "s")
 {
     askMultipleBooks = true;
@@ -35,14 +37,50 @@ else if (multipleBooks == "n")
     askMultipleBooks = false;
 } else throw new Exception ("risposta non valida");
 
-
-
-
-
 Console.WriteLine("");
 
 string t = evento1.ToString();
 string v = evento1.SpotsReview();
 Console.Write(t);
 Console.Write(v);
+
+
+
+//chiedo all'utente se e quanti posti vuole disdire
+bool askToDelete = false;  
+
+do
+{
+    Console.Write("Desideri disdire delle prenotazioni? (s/n) ");
+    string multipleDelete = Console.ReadLine();
+
+    if (multipleDelete == "s")
+    {
+        askMultipleBooks = true;
+        Console.Write("Inserisci il numero di posti che vuoi disdire: ");
+        int deleteSpots = Convert.ToInt32(Console.ReadLine());
+        evento1.BookSpots(deleteSpots);
+
+
+        string d = evento1.SpotsReview();
+
+        Console.Write(d);
+
+
+    }
+    else if (multipleDelete == "n")
+    {
+        askToDelete = false;
+        break;
+    }
+    else throw new Exception("risposta non valida");
+
+
+} while (askToDelete = true);
+
+
+
+Console.WriteLine("");
+
+
 

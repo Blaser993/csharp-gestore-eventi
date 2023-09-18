@@ -68,7 +68,6 @@ namespace csharp_gestore_eventi
 
         private int SetSpotsAviable()
         {
-            spotsAviable = spotsMax - spotsBooked;
             return spotsAviable;
         }
 
@@ -80,6 +79,7 @@ namespace csharp_gestore_eventi
             this.date = date;
             this.spotsMax = spotsMax;
             this.spotsBooked = 0;
+            this.spotsAviable = spotsMax - spotsBooked;
         }
 
         //metodi
@@ -114,7 +114,8 @@ namespace csharp_gestore_eventi
         public string SpotsReview()
         {
             return (@$"
-    Capienza evento: {spotsMax} 
+    Capienza evento: {spotsMax}
+    Posti prenotati: {spotsBooked}
     Posti disponibili: {spotsAviable}
             ");
         }
