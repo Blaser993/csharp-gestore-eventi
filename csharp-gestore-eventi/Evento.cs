@@ -66,9 +66,32 @@ namespace csharp_gestore_eventi
 
         //metodi
 
-        public int BookSlots(int slots) 
+        public int BookSpots(int spots) 
         { 
-            return 
+            if (spots > (spotsMax - SpotsBooked) || spotsMax == SpotsBooked || date < DateTime.Now)
+            {
+                throw new Exception(
+                    "Non è possibile prenotare nuovi posti");
+            }
+            SpotsBooked += spots;
+            return SpotsBooked;
+        }
+
+        public int DeleteBookedSpots(int spots) 
+        {
+            if ( spots > SpotsBooked || SpotsBooked == 0 || date < DateTime.Now)
+            {
+                throw new Exception(
+                    "Non è possibile prenotare nuovi posti");
+            }
+            SpotsBooked -= spots;
+            return SpotsBooked;
+        }
+
+        public override string ToString()
+        {
+            date.ToString("dd/MM/yyyy");
+            return base.ToString($"{date} - {title}");
         }
     }
 }
