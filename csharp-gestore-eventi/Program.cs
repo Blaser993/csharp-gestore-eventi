@@ -44,7 +44,7 @@ string v = evento1.SpotsReview();
 Console.Write(t);
 Console.Write(v);
 
-
+//MILESTONE 2 ------------------------------------------------------------------------------------
 
 //chiedo all'utente se e quanti posti vuole disdire
 bool askToDelete = false;  
@@ -76,6 +76,8 @@ do
 
 } while (askToDelete = true);
 
+
+//MILESTONE 3 ----------------------------------------------------------------------------
 
 
 Console.WriteLine("");
