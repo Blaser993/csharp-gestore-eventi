@@ -13,7 +13,7 @@ namespace csharp_gestore_eventi
 
 
         //costruttore
-        public ProgrammaEventi(string title, List<Evento> Eventi)
+        public ProgrammaEventi(string title)
         {
             this.Title = title;
             this.Eventi = new List<Evento>();
@@ -50,12 +50,8 @@ namespace csharp_gestore_eventi
 
         public int CountEvents(List<Evento> eventi)
         {
-            int count = 0;
-            foreach (Evento evento in eventi)
-            {
-                count = count++;
-            }
-            return count;
+   
+            return eventi.Count;
         }
 
         public static void StampListEvents(List<Evento> eventi)

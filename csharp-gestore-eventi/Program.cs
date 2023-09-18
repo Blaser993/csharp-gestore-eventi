@@ -82,12 +82,12 @@ do
 
 //MILESTONE 4 ----------------------------------------------------------------------------
 
-List<Evento> events = new List<Evento>();
+
 Console.Write("Inserisci il nome del tuo programma di eventi: ");
 string nameProgramma = Console.ReadLine();
 Console.WriteLine("");
 
-ProgrammaEventi programma1 = new ProgrammaEventi(nameProgramma, events);
+ProgrammaEventi programma1 = new ProgrammaEventi(nameProgramma);
 
 Console.Write($"Inserisci il numero di eventi che vuoi aggiungere a {programma1.Title}: ");
 int numberEvents = Convert.ToInt32(Console.ReadLine());
@@ -95,16 +95,19 @@ Console.WriteLine("");
 
 for (int i = 0; i < numberEvents; i++)
 {
+    
     Console.Write("Inserisci il nome dell'evento: ");
     string nome1 = Console.ReadLine();
     Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
     DateTime data1 = Convert.ToDateTime(Console.ReadLine());
     Console.Write("Inserisci il numero di posti: ");
     int posti1 = Convert.ToInt32(Console.ReadLine());
+    Evento evento1 = new Evento(nome1, data1, posti1);
+    programma1.NewEventInList(evento1);
     Console.WriteLine("");
 }
 
-int numberOfEvents = programma1.CountEvents(events);
+int numberOfEvents = programma1.CountEvents(programma1.Eventi);
 Console.WriteLine($"{numberOfEvents}");
 
 
