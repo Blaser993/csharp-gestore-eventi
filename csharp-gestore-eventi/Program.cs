@@ -11,10 +11,35 @@ Console.Write("Inserisci il numero di posti: ");
 int posti1 = Convert.ToInt32(Console.ReadLine());
 
 Evento evento1 = new Evento(nome1, data1, posti1);
+bool askMultipleBooks = false;
 
-Console.Write("Quanti posti desideri prenotare? ");
-int prenotati1 = Convert.ToInt32(Console.ReadLine());
-evento1.BookSpots(prenotati1);
+
+Console.Write("Desideri effettuare delle prenotazioni? (s/n) ");
+string multipleBooks = Console.ReadLine();
+
+if (multipleBooks == "s")
+{
+
+    askMultipleBooks = true;
+    Console.Write("Inserisci il numero di prenotazioni che vuoi effettuare: ");
+    int books = Convert.ToInt32(Console.ReadLine());
+
+    for (int i = 0; i < books; i++)
+    {
+        Console.Write("Inserisci il numero di posti che vuoi prenotare: ");
+        int booksSpots = Convert.ToInt32(Console.ReadLine());
+        evento1.BookSpots(booksSpots);
+    }
+}
+else if (multipleBooks == "n")
+{
+    askMultipleBooks = false;
+}
+else throw new Exception ("risposta non valida");
+
+
+
+
 
 Console.WriteLine("");
 
