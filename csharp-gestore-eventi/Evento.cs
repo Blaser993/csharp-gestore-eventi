@@ -78,8 +78,8 @@ namespace csharp_gestore_eventi
             this.title = title;
             this.date = date;
             this.spotsMax = spotsMax;
-            this.spotsBooked = 0;
-            this.spotsAviable = spotsMax - spotsBooked;
+            spotsBooked = 0;
+            spotsAviable = spotsMax - this.spotsBooked;
         }
 
         //metodi
@@ -91,7 +91,7 @@ namespace csharp_gestore_eventi
                 throw new Exception(
                     "Non è possibile prenotare nuovi posti");
             }
-            spotsBooked += spots;
+            spotsBooked = spotsBooked + spots;
             return spotsBooked;
         }
 
@@ -102,7 +102,7 @@ namespace csharp_gestore_eventi
                 throw new Exception(
                     "Non è possibile prenotare nuovi posti");
             }
-            spotsBooked -= spots;
+            spotsBooked = spotsBooked - spots;
             return spotsBooked;
         }
 

@@ -61,16 +61,15 @@ do
         int deleteSpots = Convert.ToInt32(Console.ReadLine());
         evento1.BookSpots(deleteSpots);
 
-
-        string d = evento1.SpotsReview();
-
-        Console.Write(d);
+        Console.WriteLine($"Posti prenotati: {evento1.spotsBooked}");
+        Console.WriteLine($"Posti disponibili: { evento1.spotsAviable}");
 
 
     }
     else if (multipleDelete == "n")
     {
         askToDelete = false;
+        Console.WriteLine("Grazie.");
         break;
     }
     else throw new Exception("risposta non valida");
