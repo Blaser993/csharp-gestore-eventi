@@ -62,7 +62,7 @@ do
         evento1.DeleteBookedSpots(deleteSpots);
         Console.WriteLine($"Posti prenotati: {evento1.SpotsBooked}");
         Console.WriteLine($"Posti disponibili: { evento1.spotsAviable}");
-
+        Console.WriteLine("");
 
     }
     else if (multipleDelete == "n")
