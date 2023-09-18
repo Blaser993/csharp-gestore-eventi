@@ -14,9 +14,34 @@ namespace csharp_gestore_eventi
 
         public int spotsMax;
 
-        public int spotsBooked;
+        private int spotsBooked;
+        public int SpotsBooked
+        {
+            get
+            {
+                return spotsBooked;
+            }
+            set
+            {
+                SetSpotsAviable();
+                spotsBooked = value;
+            }
+        }
 
         public int spotsAviable;
+        public int SpotsAviable
+        {
+            get
+            {
+                return spotsAviable;
+            }
+            set
+            {
+                SetSpotsAviable();
+                spotsAviable = value;
+            }
+        }
+
 
         // getter e setter
 
@@ -60,7 +85,7 @@ namespace csharp_gestore_eventi
 
         private int SetSpotsBooked()
         {
-
+            SetSpotsAviable();
             return spotsAviable;
         }
 
@@ -68,7 +93,7 @@ namespace csharp_gestore_eventi
 
         private int SetSpotsAviable()
         {
-            spotsAviable = spotsMax - spotsBooked;
+            spotsAviable = spotsMax - SpotsBooked;
             return this.spotsAviable;
         }
 
@@ -79,32 +104,35 @@ namespace csharp_gestore_eventi
             this.title = title;
             this.date = date;
             this.spotsMax = spotsMax;
-            spotsBooked = 0;
-            this.spotsAviable = SetSpotsAviable();
+            SpotsBooked = 0;
+            spotsAviable = SetSpotsAviable();
         }
 
         //metodi
 
         public int BookSpots(int spots) 
         { 
-            if (spots > (spotsMax - spotsBooked) || spotsMax == spotsBooked || date < DateTime.Now)
+            if (spots > (spotsMax - SpotsBooked) || spotsMax == SpotsBooked || date < DateTime.Now)
             {
                 throw new Exception(
                     "Non è possibile prenotare nuovi posti");
             }
-            spotsBooked = this.spotsBooked + spots;
-            return spotsBooked;
+            SetSpotsAviable();
+            SpotsBooked = this.SpotsBooked + spots;
+            return SpotsBooked;
         }
 
         public int DeleteBookedSpots(int spots) 
         {
-            if ( spots > spotsBooked || spotsBooked == 0 || date < DateTime.Now)
+            if ( spots > SpotsBooked || SpotsBooked == 0 || date < DateTime.Now)
             {
                 throw new Exception(
                     "Non è possibile prenotare nuovi posti");
             }
-            spotsBooked = this.spotsBooked - spots;
-            return this.spotsBooked;
+            
+            SpotsBooked = SpotsBooked - spots;
+            SetSpotsAviable();
+            return SpotsBooked;
         }
 
         public override string ToString()
@@ -114,9 +142,10 @@ namespace csharp_gestore_eventi
 
         public string SpotsReview()
         {
+            SetSpotsAviable();
             return (@$"
     Capienza evento: {spotsMax}
-    Posti prenotati: {spotsBooked}
+    Posti prenotati: {SpotsBooked}
     Posti disponibili: {spotsAviable}
             ");
         }
