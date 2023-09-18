@@ -16,6 +16,8 @@ namespace csharp_gestore_eventi
 
         public int spotsBooked;
 
+        public int spotsAviable;
+
         // getter e setter
 
         public string GetTitle() { return title; }
@@ -59,7 +61,15 @@ namespace csharp_gestore_eventi
         private int SetSpotsBooked()
         {
 
-            return spotsBooked;
+            return spotsAviable;
+        }
+
+        public int GetSpotsAviable() { return spotsAviable; }
+
+        private int SetSpotsAviable()
+        {
+            spotsAviable = spotsMax - spotsBooked;
+            return spotsAviable;
         }
 
         //costruttore
@@ -105,7 +115,7 @@ namespace csharp_gestore_eventi
         {
             return (@$"
     Capienza evento: {spotsMax} 
-    Posti prenotati: {spotsBooked}
+    Posti disponibili: {spotsAviable}
             ");
         }
     }

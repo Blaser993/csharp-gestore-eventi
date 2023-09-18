@@ -19,7 +19,6 @@ string multipleBooks = Console.ReadLine();
 
 if (multipleBooks == "s")
 {
-
     askMultipleBooks = true;
     Console.Write("Inserisci il numero di prenotazioni che vuoi effettuare: ");
     int books = Convert.ToInt32(Console.ReadLine());
@@ -34,8 +33,7 @@ if (multipleBooks == "s")
 else if (multipleBooks == "n")
 {
     askMultipleBooks = false;
-}
-else throw new Exception ("risposta non valida");
+} else throw new Exception ("risposta non valida");
 
 
 
