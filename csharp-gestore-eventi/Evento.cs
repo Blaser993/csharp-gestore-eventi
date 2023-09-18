@@ -64,7 +64,7 @@ namespace csharp_gestore_eventi
 
         //costruttore
 
-        public Evento(string title, DateTime date, int spotsMax, int spotsBooked) 
+        public Evento(string title, DateTime date, int spotsMax) 
         {
             this.title = title;
             this.date = date;
@@ -98,7 +98,15 @@ namespace csharp_gestore_eventi
 
         public override string ToString()
         {
-            return ($"{date.ToString("dd / MM / yyyy")} - {title}");
+            return ($"{date.ToString("dd/MM/yyyy")} - {title}");
+        }
+
+        public string SpotsReview()
+        {
+            return (@$"
+    Capienza evento: {spotsMax} 
+    Posti prenotati: {spotsBooked}
+            ");
         }
     }
 }
