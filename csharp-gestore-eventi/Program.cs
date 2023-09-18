@@ -59,8 +59,7 @@ do
         askMultipleBooks = true;
         Console.Write("Inserisci il numero di posti che vuoi disdire: ");
         int deleteSpots = Convert.ToInt32(Console.ReadLine());
-        evento1.BookSpots(deleteSpots);
-
+        evento1.DeleteBookedSpots(deleteSpots);
         Console.WriteLine($"Posti prenotati: {evento1.spotsBooked}");
         Console.WriteLine($"Posti disponibili: { evento1.spotsAviable}");
 
@@ -75,7 +74,7 @@ do
     else throw new Exception("risposta non valida");
 
 
-} while (askToDelete = true);
+} while (askToDelete == true);
 
 
 
