@@ -64,7 +64,7 @@ namespace csharp_gestore_eventi
 
         //costruttore
 
-        public Evento(string title, DateTime date, int spotsMax) 
+        public Evento(string title, DateTime date, int spotsMax, int spotsBooked) 
         {
             this.title = title;
             this.date = date;
